@@ -46,7 +46,7 @@
             var link = e.target.closest('a');
             if (!link) return;
             var href = link.getAttribute('href');
-            if (!href || !href.match(/\.(jpg|jpeg|gif|png|mp4)$/i)) return;
+            if (!href || !href.match(/\.(jpg|jpeg|gif|png)$/i)) return;
 
             e.preventDefault();
             e.stopPropagation();

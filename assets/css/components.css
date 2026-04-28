@@ -264,7 +264,7 @@ form > :last-child {
     display: flex;
     flex-wrap: wrap;
     margin: calc(var(--form-gutter) * -1) 0 var(--element-margin) calc(var(--form-gutter) * -1);
-    width: calc(100% + calc(var(--form-gutter) * 2));
+    width: calc(100% + var(--form-gutter) * 2);
 }
 
 .field {
@@ -275,7 +275,7 @@ form > :last-child {
 }
 
 .field.half {
-    width: calc(50% - calc(var(--form-gutter) * 0.5));
+    width: calc(50% - var(--form-gutter) * 0.5);
 }
 
 .field > :last-child {
