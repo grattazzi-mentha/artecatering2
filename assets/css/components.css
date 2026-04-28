@@ -1,0 +1,460 @@
+/* Components */
+
+/* ==================
+   Icon base (Font Awesome compatibility)
+   ================== */
+
+.icon {
+    text-decoration: none;
+    position: relative;
+    border-bottom: none;
+}
+
+.icon > .label {
+    display: none;
+}
+
+.icon::before {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+    text-transform: none !important;
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 400;
+}
+
+.icon.solid::before {
+    font-weight: 900;
+}
+
+.icon.brands::before {
+    font-family: 'Font Awesome 5 Brands';
+}
+
+/* ==================
+   Scroll-down arrow
+   ================== */
+
+.scroll-down {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: solid 2px currentColor;
+    border-bottom: none;
+    text-decoration: none;
+    position: relative;
+    transition: border-color 0.25s ease;
+}
+
+.scroll-down .label {
+    display: none;
+}
+
+.scroll-down::before {
+    content: '';
+    display: block;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg) translateY(-2px);
+}
+
+.scroll-down:hover {
+    border-color: var(--color-fg-light);
+}
+
+/* ==================
+   Feature icons
+   ================== */
+
+ul.feature-icons {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: calc(var(--element-margin) * 1.5) 0;
+}
+
+ul.feature-icons:first-child {
+    margin-top: 0;
+}
+
+ul.feature-icons li {
+    margin: calc(var(--element-margin) * 1.25) 0 0 0;
+    padding: 0.5rem 0 0 4.5rem;
+    position: relative;
+    width: 50%;
+}
+
+ul.feature-icons li:nth-child(1),
+ul.feature-icons li:nth-child(2) {
+    margin-top: 0;
+}
+
+ul.feature-icons li::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 512 512'%3E%3Cpath d='M256,0l221.7,128v256L256,512L34.3,384V128L256,0z' fill='rgba(144,144,144,0.1)'/%3E%3C/svg%3E");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: var(--color-fg);
+    display: block;
+    font-size: 1.25rem;
+    height: 3.25rem;
+    left: 0;
+    line-height: 3.25rem;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 3.25rem;
+}
+
+/* ==================
+   Gallery
+   ================== */
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    margin: calc(var(--gallery-gutter) * -1) 0 0 calc(var(--gallery-gutter) * -1);
+    width: calc(100% + var(--gallery-gutter));
+    position: relative;
+}
+
+.gallery a {
+    border-bottom: 0;
+    display: block;
+    margin: var(--gallery-gutter) 0 0 var(--gallery-gutter);
+    outline: 0;
+    position: relative;
+    width: calc(50% - var(--gallery-gutter));
+    overflow: hidden;
+}
+
+.gallery a img {
+    display: block;
+    height: 12rem;
+    min-height: 10rem;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+
+.gallery a:hover img {
+    transform: scale(1.04);
+}
+
+.gallery a.landscape {
+    width: calc(100% - var(--gallery-gutter));
+}
+
+.gallery a.landscape img {
+    height: 16rem;
+}
+
+.gallery a.portrait img {
+    height: 18rem;
+}
+
+/* Gallery Modal / Lightbox */
+.gallery .modal {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+    user-select: none;
+    transition: opacity 0.5s ease, visibility 0.5s, z-index 0.5s;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.875);
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    outline: 0;
+    position: fixed;
+    top: 0;
+    visibility: hidden;
+    width: 100%;
+    z-index: 0;
+}
+
+.gallery .modal::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cline x1='20' y1='20' x2='44' y2='44' stroke='%23000' stroke-width='2'/%3E%3Cline x1='20' y1='44' x2='44' y2='20' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 3rem;
+    content: '';
+    cursor: pointer;
+    display: block;
+    height: 4rem;
+    position: absolute;
+    right: 0.5rem;
+    top: 0.5rem;
+    width: 4rem;
+}
+
+.gallery .modal .inner {
+    transform: translateY(0.75rem);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    opacity: 0;
+}
+
+.gallery .modal .inner img {
+    box-shadow: 0 1rem 3rem 0 rgba(0, 0, 0, 0.35);
+    display: block;
+    max-height: 90vh;
+    max-width: 90vw;
+    height: auto;
+    width: auto;
+}
+
+.gallery .modal.visible {
+    pointer-events: auto;
+    opacity: 1;
+    visibility: visible;
+    z-index: 11000;
+}
+
+.gallery .modal.loaded .inner {
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    opacity: 1;
+}
+
+/* ==================
+   Subsection (within catering right column)
+   ================== */
+
+.subsection {
+    margin: calc(var(--element-margin) * 2) 0 0 0;
+}
+
+.subsection:first-child {
+    margin-top: 0;
+}
+
+.subsection-header {
+    margin-bottom: var(--element-margin);
+}
+
+.subsection-header h3 {
+    margin-bottom: calc(var(--element-margin) * 0.4);
+}
+
+/* ==================
+   Form
+   ================== */
+
+form {
+    margin: 0 0 var(--element-margin) 0;
+}
+
+form > :last-child {
+    margin-bottom: 0;
+}
+
+.fields {
+    display: flex;
+    flex-wrap: wrap;
+    margin: calc(var(--form-gutter) * -1) 0 var(--element-margin) calc(var(--form-gutter) * -1);
+    width: calc(100% + var(--form-gutter) * 2);
+}
+
+.field {
+    flex-grow: 0;
+    flex-shrink: 0;
+    padding: var(--form-gutter) 0 0 var(--form-gutter);
+    width: calc(100% - var(--form-gutter));
+}
+
+.field.half {
+    width: calc(50% - var(--form-gutter) * 0.5);
+}
+
+.field > :last-child {
+    margin-bottom: 0;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="search"],
+input[type="url"],
+select,
+textarea {
+    appearance: none;
+    border-radius: var(--border-radius);
+    border: solid 2px var(--color-border);
+    color: inherit;
+    display: block;
+    outline: 0;
+    padding: 0 1rem;
+    text-decoration: none;
+    width: 100%;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="search"],
+input[type="url"] {
+    height: var(--element-height);
+}
+
+textarea {
+    padding: 0.75rem 1rem;
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--color-accent-alt);
+    outline: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--color-fg-light);
+    opacity: 1;
+}
+
+/* ==================
+   Buttons
+   ================== */
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button,
+.button {
+    appearance: none;
+    transition: background-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out, color 0.25s ease-in-out;
+    background-color: transparent;
+    border-radius: var(--border-radius);
+    border: 0;
+    box-shadow: inset 0 0 0 2px var(--color-border);
+    color: var(--color-fg) !important;
+    cursor: pointer;
+    display: inline-block;
+    font-family: var(--font-family-heading);
+    font-size: 0.6rem;
+    font-weight: var(--font-weight-heading-light);
+    height: var(--element-height);
+    letter-spacing: var(--kerning-heading);
+    line-height: var(--element-height);
+    padding: 0 2rem;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+input[type="submit"]:hover,
+.button:hover {
+    box-shadow: inset 0 0 0 2px var(--color-accent-alt);
+    color: var(--color-accent-alt) !important;
+}
+
+input[type="submit"].primary,
+.button.primary {
+    background-color: var(--color-accent);
+    box-shadow: none;
+    color: var(--color-fg) !important;
+}
+
+input[type="submit"].primary:hover,
+.button.primary:hover {
+    background-color: #7afde3;
+}
+
+/* ==================
+   Actions list
+   ================== */
+
+ul.actions {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 calc(var(--element-margin) * 0.5) calc(-0.5 * 1rem);
+}
+
+ul.actions li {
+    padding: 0 0 0 1rem;
+    vertical-align: middle;
+}
+
+ul.actions li:first-child {
+    padding-left: 0;
+}
+
+/* ==================
+   Contact info items
+   ================== */
+
+ul.items {
+    list-style: none;
+    padding: 0;
+    margin: calc(var(--element-margin) * 2) 0 0 0;
+}
+
+ul.items > li {
+    margin: 0 0 calc(var(--element-margin) * 1.5) 0;
+    padding: 0;
+}
+
+ul.items > li:last-child {
+    margin-bottom: 0;
+}
+
+ul.items > li > h3 {
+    margin: 0 0 calc(var(--element-margin) * 0.5) 0;
+    font-size: 0.75rem;
+    letter-spacing: var(--kerning-heading);
+    text-transform: uppercase;
+    font-family: var(--font-family-heading);
+    font-weight: var(--font-weight-heading-light);
+}
+
+ul.items > li > :last-child {
+    margin-bottom: 0;
+}
+
+/* ==================
+   Social icons
+   ================== */
+
+ul.icons {
+    cursor: default;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul.icons li {
+    display: inline-block;
+}
+
+ul.icons li .icon {
+    transition: background-color 0.25s ease-in-out;
+    width: 2.25rem;
+    height: 2.25rem;
+    text-align: center;
+    line-height: 2.25rem;
+    border-radius: 50%;
+    display: inline-block;
+    border-bottom: none;
+    font-size: 1rem;
+}
+
+ul.icons li .icon:hover {
+    background-color: var(--color-border-bg);
+}
