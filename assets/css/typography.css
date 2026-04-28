@@ -1,0 +1,129 @@
+/* Typography */
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,600;0,700;1,300;1,600;1,700&family=Raleway:wght@600;800&display=swap');
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-fg);
+}
+
+body, input, select, textarea {
+    color: var(--color-fg);
+    font-family: var(--font-family);
+    font-size: 1rem;
+    font-weight: var(--font-weight);
+    letter-spacing: var(--kerning);
+    line-height: 2;
+}
+
+/* Preload: suppress animations until page is ready */
+body.is-preload *,
+body.is-preload *::before,
+body.is-preload *::after {
+    animation: none !important;
+    transition: none !important;
+}
+
+/* Links */
+a {
+    transition: border-bottom-color 0.25s ease-in-out;
+    text-decoration: none;
+    color: var(--color-fg);
+    border-bottom: dotted 1px;
+}
+
+a:hover {
+    border-bottom-color: transparent;
+}
+
+/* Strong / bold */
+strong, b {
+    font-weight: var(--font-weight-bold);
+    color: var(--color-fg);
+}
+
+em, i {
+    font-style: italic;
+}
+
+/* Paragraph */
+p {
+    margin: 0 0 var(--element-margin) 0;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--color-fg);
+    font-family: var(--font-family-heading);
+    font-weight: var(--font-weight-heading-light);
+    letter-spacing: var(--kerning-heading);
+    line-height: 1.75;
+    margin: 0 0 calc(var(--element-margin) * 0.75) 0;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-family: var(--font-family);
+    font-size: 4rem;
+    font-weight: var(--font-weight-extrabold);
+    letter-spacing: var(--kerning-alt);
+    line-height: 1.1;
+    text-transform: none;
+    margin: 0 0 calc(var(--element-margin) * 0.75) 0;
+}
+
+h1 img {
+    max-width: 280px;
+    width: 100%;
+    height: auto;
+}
+
+h2 {
+    font-size: 1.25rem;
+    font-weight: var(--font-weight-heading);
+    margin: 0 0 var(--element-margin) 0;
+}
+
+h3 {
+    font-size: 0.875rem;
+}
+
+h4 { font-size: 0.875rem; }
+h5 { font-size: 0.75rem; }
+h6 { font-size: 0.625rem; }
+
+/* Brand colors */
+.red-text    { color: var(--color-red); }
+.blue-text   { color: var(--color-blue); }
+.yellow-text { color: var(--color-yellow); }
+
+/* Tagline (intro sub-heading) */
+.tagline {
+    font-family: var(--font-family-heading);
+    font-size: 0.8rem;
+    font-weight: var(--font-weight-heading-light);
+    letter-spacing: var(--kerning-heading);
+    line-height: 2.5;
+    text-transform: uppercase;
+    margin: 0 0 var(--element-margin) 0;
+}
+
+/* Image helpers */
+.image.main {
+    display: block;
+    margin: calc(var(--element-margin) * 1.5) 0;
+    width: 100%;
+}
+
+.image.main img {
+    width: 100%;
+}
+
+.image.main:first-child {
+    margin-top: 0;
+}
+
+/* Copyright */
+.copyright a {
+    color: inherit;
+}

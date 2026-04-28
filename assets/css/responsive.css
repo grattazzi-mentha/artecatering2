@@ -1,0 +1,135 @@
+/* Responsive Breakpoints */
+
+/* ── Extra-large (≤ 1680px) ── */
+@media screen and (max-width: 1680px) {
+    html {
+        font-size: 13pt;
+    }
+}
+
+/* ── Large (≤ 1280px) ── */
+@media screen and (max-width: 1280px) {
+    :root {
+        --col-padding: 3.5rem;
+    }
+}
+
+/* ── Medium / tablet (≤ 1152px) – stack to single column ── */
+@media screen and (max-width: 1152px) {
+    html {
+        font-size: 14pt;
+    }
+
+    /* Stack columns vertically */
+    .section {
+        flex-direction: column;
+    }
+
+    .col-left {
+        width: 100%;
+        flex: 0 0 auto;
+        align-items: flex-start;
+        text-align: left;
+        padding: calc(var(--col-padding) * 0.75) var(--col-padding);
+    }
+
+    .col-right {
+        width: 100%;
+        flex: 0 0 auto;
+        padding: calc(var(--col-padding) * 0.75) var(--col-padding);
+    }
+
+    /* Intro: fixed height for hero image on mobile */
+    .section.intro {
+        min-height: auto;
+    }
+
+    .section.intro .col-left {
+        padding: calc(var(--col-padding) * 0.9) var(--col-padding);
+    }
+
+    .section.intro .col-right {
+        height: 50vw;
+        min-height: 280px;
+    }
+
+    /* Scroll-down arrow hidden on stacked layout */
+    .scroll-down {
+        display: none;
+    }
+
+    /* Copyright full-width */
+    .copyright {
+        margin-left: 0;
+        width: 100%;
+        padding: 1.5rem var(--col-padding);
+    }
+}
+
+/* ── Small (≤ 736px) ── */
+@media screen and (max-width: 736px) {
+    html {
+        font-size: 12pt;
+    }
+
+    :root {
+        --col-padding: 2rem;
+        --gallery-gutter: 0.75rem;
+        --form-gutter: 1.25rem;
+    }
+
+    h1 {
+        font-size: 3.5rem;
+    }
+
+    h2 {
+        font-size: 1.1rem;
+    }
+
+    ul.feature-icons li {
+        width: 100%;
+    }
+
+    ul.feature-icons li:nth-child(2) {
+        margin-top: calc(var(--element-margin) * 1);
+    }
+
+    .gallery a img {
+        height: 8rem;
+        min-height: 0;
+    }
+
+    .gallery a.landscape img {
+        height: 10rem;
+    }
+
+    .gallery a.portrait img {
+        height: 12rem;
+    }
+
+    .field.half {
+        width: calc(100% - var(--form-gutter));
+    }
+}
+
+/* ── Extra-small (≤ 480px) ── */
+@media screen and (max-width: 480px) {
+    html {
+        font-size: 11pt;
+    }
+
+    h1 img {
+        max-width: 200px;
+    }
+}
+
+/* ── Tiny (≤ 360px) ── */
+@media screen and (max-width: 360px) {
+    html {
+        font-size: 11pt;
+    }
+
+    :root {
+        --col-padding: 1.5rem;
+    }
+}

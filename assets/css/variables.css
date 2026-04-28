@@ -1,0 +1,45 @@
+:root {
+    /* ── Colors ── */
+    --color-bg:          #ffffff;
+    --color-fg:          #000000;
+    --color-fg-light:    rgba(0, 0, 0, 0.25);
+    --color-border:      rgba(144, 144, 144, 0.25);
+    --color-border-bg:   rgba(144, 144, 144, 0.1);
+
+    /* Accent (teal) */
+    --color-accent:        #49fcd4;
+    --color-accent-border: #2fc9a8;
+    --color-accent-alt:    #28b898;
+    --color-accent-bg:     rgba(73, 252, 212, 0.25);
+
+    /* Brand colors */
+    --color-red:    #e84848;
+    --color-blue:   #4875e8;
+    --color-yellow: #e8b840;
+
+    /* ── Fonts ── */
+    --font-family:         'Source Sans Pro', Helvetica, sans-serif;
+    --font-family-heading: 'Raleway', Helvetica, sans-serif;
+
+    /* Font weights */
+    --font-weight:               300;
+    --font-weight-bold:          600;
+    --font-weight-extrabold:     700;
+    --font-weight-heading:       800;
+    --font-weight-heading-light: 600;
+
+    /* Font kerning */
+    --kerning:         0.0375em;
+    --kerning-heading: 0.175em;
+    --kerning-alt:    -0.05em;
+
+    /* ── Spacing & sizing ── */
+    --element-margin:  2rem;
+    --element-height:  3rem;
+    --border-radius:   0.325rem;
+    --gallery-gutter:  1.25rem;
+    --form-gutter:     2rem;
+
+    /* ── Layout ── */
+    --col-padding:     4rem;
+}

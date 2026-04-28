@@ -1,0 +1,79 @@
+/* Two-Column Layout */
+
+/* ── Wrapper ── */
+#wrapper {
+    position: relative;
+    width: 100%;
+}
+
+/* ── Section base ── */
+.section {
+    display: flex;
+    flex-direction: row;
+}
+
+/* ── Left column (accent background) ── */
+.col-left {
+    background-color: var(--color-accent);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    text-align: right;
+    flex: 0 0 50%;
+    width: 50%;
+    padding: var(--col-padding) calc(var(--col-padding) * 1.5) var(--col-padding) var(--col-padding);
+}
+
+/* ── Right column (white background) ── */
+.col-right {
+    background-color: var(--color-bg);
+    flex: 0 0 50%;
+    width: 50%;
+    padding: var(--col-padding);
+    position: relative;
+}
+
+/* ── Intro section ── */
+.section.intro {
+    min-height: 100vh;
+    align-items: stretch;
+}
+
+.section.intro .col-left {
+    padding-top: calc(var(--col-padding) * 2);
+}
+
+.section.intro .col-right {
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Hero image fills the intro right column */
+.section.intro .col-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* ── Copyright ── */
+.copyright {
+    background-color: var(--color-bg);
+    color: var(--color-fg-light);
+    font-size: 1rem;
+    padding: 1.5rem var(--col-padding);
+    margin-left: 50%;
+    width: 50%;
+}
+
+/* ── Preload / intro animation ── */
+.section.intro {
+    transition: opacity 1s ease;
+    opacity: 1;
+}
+
+body.is-preload .section.intro {
+    opacity: 0;
+}
